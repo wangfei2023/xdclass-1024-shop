@@ -1,0 +1,101 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: xdclass-user-service
+  redis:
+    host: 101.200.37.203
+    password: kwdkr
+    port: 8000
+#数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/xdclass_user?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 12345678
+
+##配置plus打印sql日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+#设置日志级别,ERROR/WARN/INFO/DEBUG,默认是INFO以上才显示
+logging:
+  level:
+    root: INFO
+#
+#  mail:
+#    host: smtp.126.com #发送邮件服务器
+#    username: lucky20192021@126.com #发送邮件的邮箱 地址
+#    password: wf896901 #客户端授权码，不 是邮箱密码,网易的是自己设置的
+#    from: 1850195602@qq.com # 发送邮件的地址，和 上面username一致
+#    properties.mail.smtp.starttls.enable: true
+#    properties.mail.smtp.starttls.required: true
+#    properties.mail.smtp.ssl.enable: true
+#    default-encoding: utf-8
+
+  mail:
+    host: smtp.126.com
+    from: lucky1996329miss@126.com
+    username: lucky1996329miss@126.com #你的邮箱
+    password: GIUWGUKSRKOJNFOE  #注意这个不是密码，是客户端授权码
+    default-encoding: utf-8
+#  #邮件配置
+#  mail:
+#    host: smtp.qq.com
+#    from: 2312119590@qq.com
+#    username: 2312119590@qq.com
+#    #这里要替换成自己的邮箱授权码
+#    password: xxxxxx
+#    protocol: smtp
+#    default-encoding: UTF-8
+#    #以下可以不配置
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#        starttls:
+#          enable: true
+#          required: true
+
+
+spring.mail:
+  host: smtp.126.com
+  from: lucky1996329miss@126.com
+  username: lucky1996329miss@126.com #你的邮箱
+  password: GIUWGUKSRKOJNFOE  #注意这个不是密码，是客户端授权码
+  test-connection: false
+  default-encoding: UTF-8
+  properties:
+    mail:
+      debug: false
+      smtp:
+        timeout: 5000
+        ssl:
+          enable: true
+        socketFactory:
+          port:
+          class:
+        auth: true
+  redis:
+    database: 0
+    host: 101.200.37.203
+    port: 8000
+    password: kwdkr
+    jedis:
+      pool:
+        #最大连接数
+        max-active: 8
+        #最大阻塞等待时间(负数表示没限制)
+        max-wait: -1
+        #最大空闲
+        max-idle: 8
+        #最小空闲
+        min-idle: 0
+        #连接超时时间
+        timeout: 10000
+    cache:
+      redis:
+        time-to-live: 360000000
