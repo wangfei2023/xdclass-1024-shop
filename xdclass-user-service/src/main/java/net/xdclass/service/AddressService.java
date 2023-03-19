@@ -1,4 +1,4 @@
-package net.xdclss.service;
+package net.xdclass.service;
 
 import net.xdclass.model.AddressDO;
 import com.baomidou.mybatisplus.extension.service.IService;

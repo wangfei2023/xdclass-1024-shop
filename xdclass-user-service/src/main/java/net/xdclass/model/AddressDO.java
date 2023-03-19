@@ -1,4 +1,4 @@
-package net.xdclss.model;
+package net.xdclass.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 
+ * 电商-公司收发货地址表
  * </p>
  *
  * @author 我是author
@@ -18,8 +18,8 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("user")
-public class UserDO implements Serializable {
+@TableName("address")
+public class AddressDO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -27,50 +27,46 @@ public class UserDO implements Serializable {
     private Long id;
 
     /**
-     * 昵称
+     * 用户id
      */
-    private String name;
+    private Long userId;
 
     /**
-     * 密
-码
+     * 是否默认收货地址:0->否;1->是
      */
-    private String pwd;
+    private Integer defaultStatus;
 
     /**
-     * 头像
+     * 收发货人姓名
      */
-    private String headImg;
+    private String receiveName;
 
     /**
-     * 用户签名
+     * 收货人电话
      */
-    private String slogan;
+    private String phone;
 
     /**
-     * 0表示
-女，1表示男
+     * 省/直辖市
      */
-    private Integer sex;
+    private String province;
 
     /**
-     * 积
-分
+     * 市
      */
-    private Integer points;
+    private String city;
+
+    /**
+     * 区
+     */
+    private String region;
+
+    /**
+     * 详细地址
+     */
+    private String detailAddress;
 
     private Date createTime;
-
-    /**
-     * 邮
-箱
-     */
-    private String mail;
-
-    /**
-     * 盐，用于个人敏感信息处理
-     */
-    private String secret;
 
 
 }

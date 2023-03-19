@@ -1,7 +1,8 @@
-package net.xdclss.mapper;
+package net.xdclass.mapper;
 
-import net.xdclass.model.UserDO;
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import net.xdclass.model.UserDO;
 
 /**
  * <p>

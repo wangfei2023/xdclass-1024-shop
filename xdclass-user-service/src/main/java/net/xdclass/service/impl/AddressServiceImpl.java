@@ -1,4 +1,4 @@
-package net.xdclss.service.impl;
+package net.xdclass.service.impl;
 
 import net.xdclass.model.AddressDO;
 import net.xdclass.mapper.AddressMapper;
