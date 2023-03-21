@@ -1,6 +1,7 @@
 package net.xdclass.AddressTest;
 
 import lombok.extern.slf4j.Slf4j;
+import net.xdclass.config.OssConfig;
 import net.xdclass.model.AddressDO;
 import net.xdclass.service.AddressService;
 import org.junit.Test;
@@ -15,9 +16,19 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class AddressTest {
     @Autowired
     private AddressService addressService;
+
+    @Autowired
+    private OssConfig ossConfig;
     @Test
     public void detail(){
         AddressDO addressDO = addressService.getById(1L);
         log.info(addressDO.toString());
+    }
+
+
+    @Test
+    public void oss(){
+        String bucketname = ossConfig.getBucketname();
+
     }
 }
