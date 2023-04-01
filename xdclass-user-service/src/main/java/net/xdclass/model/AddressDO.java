@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.concurrent.TimeUnit;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -68,5 +70,17 @@ public class AddressDO implements Serializable {
 
     private Date createTime;
 
+    public static void main(String[] args) {
+        for (int i = 0; i < 10; i++) {
+            try {
+                System.out.println("我是第"+i+"句");
+                Thread.sleep(30000);
+                System.out.println("我是第"+i+"句");
+
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 
 }

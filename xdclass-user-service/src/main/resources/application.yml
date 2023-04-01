@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 9002
 
 spring:
   application:
@@ -19,9 +19,9 @@ spring:
     password: 12345678
 ##redis 配置
   redis:
-    host: 8.129.113.233
+    host: 101.200.37.203
     port: 8000
-    password: 123456
+    password: kwdkr
 
 ##邮箱配置
   mail:
@@ -50,10 +50,10 @@ logging:
 ##阿里云OSS配置
 aliyun:
   oss:
-    endpoint: oss-cn-shenzhen.aliyuncs.com
-    access-key-id: LTAI4GJR7bL8JEzBv7zx69J4
-    access-key-secret: CNfxHJeTTLlFQA2a2X5BprjqjK047l
-    bucketname: xdclass-1024shop-img
+    endpoint: oss-cn-shanghai.aliyuncs.com
+    access-key-id: LTAI5tJrN9n1Sac1rDf37fZ6
+    access-key-secret: DiHxmWLrXTwBdiKbeuS0iwhwcxoquK
+    bucketname: paascloud-service
 #
 #
 #

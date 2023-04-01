@@ -34,7 +34,32 @@ public class NotifyController {
     private StringRedisTemplate redisTemplate;
     @Autowired
     private NotifyService notifyService;
+    /**
+     * 图形验证码有效期10分钟
+     */
+    private static final long CAPTCHA_CODE_EXPIRED = 60 * 1000 * 100;
+    @ApiOperation("获取图形验证码")
+    @GetMapping("captcha")
+    public void getCaptcha(HttpServletRequest request, HttpServletResponse response){
+      //todo：可以随意生成四位二维码;
+        String captchaText = captchaProducer.createText();
+        log.info("图形验证码:{}",captchaText);
 
+        //存储到redis
+        redisTemplate.opsForValue().set(getCaptchaKey(request),captchaText,CAPTCHA_CODE_EXPIRED,TimeUnit.MILLISECONDS);
+
+        BufferedImage bufferedImage = captchaProducer.createImage(captchaText);
+        ServletOutputStream outputStream = null;
+        try {
+            outputStream = response.getOutputStream();
+            ImageIO.write(bufferedImage,"jpg",outputStream);
+            outputStream.flush();
+            outputStream.close();
+        } catch (IOException e) {
+            log.error("获取图形验证码异常:{}",e);
+        }
+
+    }
     /**
      * 发送验证码
      * 1、匹配图形验证码是否正常
@@ -65,33 +90,8 @@ public class NotifyController {
         }
 
     }
-    private static final long CAPTCHA_CODE_EXPIRED = 60 * 1000 * 10;
-    /**
-     * 获取图形验证码
-     * @param request
-     * @param response
-     */
-    @ApiOperation("获取图形验证码")
-    @GetMapping("captcha")
-    public void getCaptcha(HttpServletRequest request, HttpServletResponse response){
 
-        String captchaText = captchaProducer.createText();
-        log.info("图形验证码:{}",captchaText);
-        //存储
-        redisTemplate.opsForValue().set(getCaptchaKey(request),captchaText,CAPTCHA_CODE_EXPIRED, TimeUnit.MILLISECONDS);
 
-        BufferedImage bufferedImage = captchaProducer.createImage(captchaText);
-        ServletOutputStream outputStream = null;
-        try {
-            outputStream = response.getOutputStream();
-            ImageIO.write(bufferedImage,"jpg",outputStream);
-            outputStream.flush();
-            outputStream.close();
-        } catch (IOException e) {
-            log.error("获取图形验证码异常:{}",e);
-        }
-
-    }
     /**
      * 获取缓存的key
      * @param request

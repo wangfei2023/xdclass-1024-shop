@@ -19,6 +19,8 @@
         <module>xdclass-order-service</module>
         <module>xdclass-coupon-service</module>
         <module>xdclass-gateway</module>
+        <module>demo</module>
+        <module>xdclass-redis</module>
     </modules>
 
     <properties>

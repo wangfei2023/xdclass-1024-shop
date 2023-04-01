@@ -10,13 +10,12 @@
         <module name="xdclass-order-service" />
         <module name="xdclass-user-service" />
         <module name="xdclass-product-service" />
+        <module name="xdclass-redis" />
+        <module name="demo" />
         <module name="xdclass-common" />
         <module name="xdclass-coupon-service" />
         <module name="xdclass-gateway" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="xdclass-common (1)" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>
